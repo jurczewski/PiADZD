@@ -1,8 +1,8 @@
 version: "3.5"
 services:
-  db:
+  mssql:
     image: mcr.microsoft.com/mssql/server
-    container_name: rmsbd.db
+    container_name: padzd.mssql
     environment:
       # User: SA
       SA_PASSWORD: "Abc12345678"
@@ -11,10 +11,3 @@ services:
       - c:/data/mssql/data:/var/opt/mssql/data
     ports:
       - 1433:1433
-    networks:
-      - rmsbd
-  
-networks:
-  rmsbd:
-    name: rmsbd-network
-    external: false
