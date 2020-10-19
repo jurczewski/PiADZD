@@ -1,0 +1,34 @@
+importy - 2.58s
+przygotowanie export_dataframe.csv - 1m 52.5s
+
+pandas:
+przygotowanie dataframe - 1m 13.2s
+Najczęściej zgłaszane skargi - 1.89s
+Urzędy, do których najczęściej zgłaszano skargi - 1.75s
+Najczęściej zgłaszane skargi w każdej dzielnicy - 4.14s
+
+dask:
+przygotowanie dataframe - 30ms
+Najczęściej zgłaszane skargi - 36.4s
+Urzędy, do których najczęściej zgłaszano skargi - 36.7s
+Najczęściej zgłaszane skargi w każdej dzielnicy - 37.4s
+
+sqlite:
+import danych - 3m 30s
+Najczęściej zgłaszane skargi - 17.7s
+Urzędy, do których najczęściej zgłaszano skargi - 19.5s
+Najczęściej zgłaszane skargi w każdej dzielnicy - 1m 0.66s
+
+mssql:
+tworzenie bazy danych - 62ms
+nawiązanie połączenia - 3ms
+import danych - ~5m
+Najczęściej zgłaszane skargi - 529ms
+Urzędy, do których najczęściej zgłaszano skargi - 527ms
+Najczęściej zgłaszane skargi w każdej dzielnicy - 2.23s
+
+mssql optymalizacja:
+stworzenie kolumny z id i stworzenie na nim indeksu - 6m 29s
+Najczęściej zgłaszane skargi - 6.49s
+Urzędy, do których najczęściej zgłaszano skargi - 6.16s
+Najczęściej zgłaszane skargi w każdej dzielnicy - 44.0s
