@@ -113,7 +113,7 @@ Po przeprowadzonych badaniach czasów wykonywania operacji otrzymaliśmy następ
 \begin{tabular}{|l|l|l|l|}
 \hline
 \rowcolor[HTML]{EFEFEF} 
-\textbf{Czynność}                     & \textbf{Pandas} & \textbf{SQLite} & \textbf{MSSQL} \\ \hline
+\textbf{Czynność}                     & \textbf{Pandas} & \textbf{SQLite3} & \textbf{MSSQL} \\ \hline
 \textbf{Przygotowanie danych}         & 1m 15.78s       & 3m 30s (1)      & 7m 16.15s (2)  \\ \hline
 \textbf{Najczęściej zgłaszane skargi} & 1.89s           & 17.7s           & 0.529s          \\ \hline
 \textbf{\begin{tabular}[c]{@{}l@{}}Najczęściej zgłaszane skargi \\ w każdej dzielnicy\end{tabular}} & 4.14s & 60.66s & 2.23s \\ \hline
@@ -121,7 +121,7 @@ Po przeprowadzonych badaniach czasów wykonywania operacji otrzymaliśmy następ
 \end{tabular}
 \end{table}
 
-Ad. 1 - Na przygotowanie danych składało się przygotowanie danych oraz stworzenie na ich podstawie bazy plikowej SQLite \\
+Ad. 1 - Na przygotowanie danych składało się przygotowanie danych oraz stworzenie na ich podstawie bazy plikowej SQLite3 \\
 
 Ad. 2  - Na przygotowanie danych składało się wygenerowanie pliku z danymi, stworzenie i wypełnienie bazy danych
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Optymalizacja
@@ -138,9 +138,9 @@ W celu optymalizacji czasu wykonania kwerend zaimplementowanych w języku Python
 \label{tab:calc1}
 \begin{tabular}{|l|l|l|l|}
 \hline
- & \textbf{Pandas} & \textbf{SQLite} & \textbf{MSSQL} \\ \hline
+ & \textbf{Python} & \textbf{SQLite3} & \textbf{MSSQL} \\ \hline
 \textbf{Czas} & 1m 15.78s & 3m 30s & 7m 16.15s \\ \hline
-\textbf{Czas po optymalizacji} & 2:88s & n/d & 13m 45.15s \\ \hline
+\textbf{Czas po optymalizacji} & 2.88s & n/d & 13m 45.15s \\ \hline
 \end{tabular}
 \end{table}
 
@@ -150,9 +150,9 @@ W celu optymalizacji czasu wykonania kwerend zaimplementowanych w języku Python
 \label{tab:calc2}
 \begin{tabular}{|l|l|l|l|}
 \hline
- & \textbf{Pandas} & \textbf{SQLite} & \textbf{MSSQL} \\ \hline
-\textbf{Czas} & 01:89s & 17:07s & 529ms \\ \hline
-\textbf{Czas po optymalizacji} & 36:04s & n/d & 06:49s \\ \hline
+ & \textbf{Python} & \textbf{SQLite3} & \textbf{MSSQL} \\ \hline
+\textbf{Czas} & 1.89s & 17:07s & 0.529s \\ \hline
+\textbf{Czas po optymalizacji} & 36.04s & n/d & 6.49s \\ \hline
 \end{tabular}
 \end{table}
 
@@ -162,9 +162,9 @@ W celu optymalizacji czasu wykonania kwerend zaimplementowanych w języku Python
 \label{tab:calc3}
 \begin{tabular}{|l|l|l|l|}
 \hline
- & \textbf{Pandas} & \textbf{SQLite} & \textbf{MSSQL} \\ \hline
-\textbf{Czas} & 04:14s & 01:66m & 02:23s \\ \hline
-\textbf{Czas po optymalizacji} & 37:4s & n/d & 44s \\ \hline
+ & \textbf{Python} & \textbf{SQLite3} & \textbf{MSSQL} \\ \hline
+\textbf{Czas} & 4.14s & 99.6s & 2.23s \\ \hline
+\textbf{Czas po optymalizacji} & 37.4s & n/d & 44s \\ \hline
 \end{tabular}
 \end{table}
 
@@ -174,9 +174,9 @@ W celu optymalizacji czasu wykonania kwerend zaimplementowanych w języku Python
 \label{tab:calc4}
 \begin{tabular}{|l|l|l|l|}
 \hline
- & \textbf{Pandas} & \textbf{SQLite} & \textbf{MSSQL} \\ \hline
-\textbf{Czas} & 01:75s & 19:05s & 527s \\ \hline
-\textbf{Czas po optymalizacji} & 36:7s & n/d & 06:16s \\ \hline
+ & \textbf{Python} & \textbf{SQLite3} & \textbf{MSSQL} \\ \hline
+\textbf{Czas} & 1.75s & 19.05s & 0.527s \\ \hline
+\textbf{Czas po optymalizacji} & 36.7s & n/d & 06.16s \\ \hline
 \end{tabular}
 \end{table}
 
