@@ -1,0 +1,111 @@
+\documentclass{classrep}
+\usepackage[utf8]{inputenc}
+\frenchspacing
+
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+\usepackage[table,xcdraw]{xcolor}
+
+\usepackage{amsmath, amssymb, mathtools}
+
+\usepackage{fancyhdr, lastpage}
+\pagestyle{fancyplain}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage\ / \pageref*{LastPage}}
+
+\renewcommand{\refname}{Bibliografia}
+
+% csharp cmd
+\newcommand{\Csharp}{%
+  {\settoheight{\dimen0}{C}C\kern-.05em \resizebox{!}{\dimen0}{\raisebox{\depth}{\# }}}}
+
+\studycycle{Informatyka stosowana, studia dzienne, II st.}
+\coursesemester{2}
+
+\coursename{Przetwarzanie i analiza dużych zbiorów danych}
+\courseyear{2020/21}
+
+\courseteacher{mgr inż. Rafał Woźniak}
+\coursegroup{środa, 11:45}
+
+\author{%
+\\
+  \studentinfo[234128@edu.p.lodz.pl]{Piotr Wardęcki}{234128}\\
+  \studentinfo[234053@edu.p.lodz.pl]{Paweł Galewicz}{234053}\\
+  \studentinfo[234067@edu.p.lodz.pl]{Bartosz Jurczewski}{234067}%
+}
+
+\title{Zadanie 2: System rekomendacji}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancyplain}
+\clearpage
+
+\section{Cel}
+Zadanie polegało na napisaniu programu który implementuje algorytm "Osoby, które możesz znać". Algorytm działa na zasadzie, że jeżeli dwóch użytkowników ma wielu wspólnych znajomych, to program proponuje im znajomość. Do wykonania powyższego zadania mieliśmy użyć języka programowania \textit{Python} oraz \textit{Apache Spark}. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  WPROWADZENIE
+\section{Wprowadzenie}
+Użytkownicy na których mieliśmy przeprowadzić badanie byli reprezentowani w postaci pliku tekstowego w którym to dane były ułożone w następującej sekwencji: <UŻYTKOWNIK><TABULATOR><ZNAJOMI>, gdzie <UŻYTKOWNIK> oznacza unikalny identyfikator użytkownika, a <ZNAJOMI> to oddzielone po przecinku identyfikatory znajomych użytkownika o identyfikatorze <UŻYTKOWNIK>.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  OPIS IMPLEMENTACJI
+\section{Opis implementacji}
+Do wykonywania zadania niezbędna była instancji \textit{Apache Spark}. Aby ograniczyć liczbę zainstalowanych środowisk skorzystaliśmy z odpowiedniego obrazu dla Dockera \cite{docker}, który zawierał także \textit{Jupyter Notebook}, \textit{Python} oraz \textit{Miniconda}. Dodatkowo aby ułatwić tworzenie środowiska do kolejnych zadań i między naszymi komputerami skorzystaliśmy z narzędzia \textit{Docker Compose} (nasz plik \cite{docker-compose}).
+
+\section{Apache Spark}
+Apache Spark posłużył nam do wczytania pliku oraz przeprowadzenia na nim wszystkich niezbędnych operacji iteracyjnych w celu wyszukania rekomendowanych znajomości dla użytkownika.Bardzo pomocna okazała się funkcja groupByKey, która polega na łączeniu danych w sposób key-value. Dla każdego klucza pobierana jest wartość w sposób iteracyjny. Dodatkowo połączyliśmy inne wbudowane metody Sparka z samodzielnie zaimplementowaną logiką, w celu osiągnięcia zamierzonego kryterium zadania.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  WYNIKI
+\section{Wyniki}
+Poniżej przedstawiamy rekomendacje dla określonych użytkowników. Dodatkowo wyniki dla użytkownika 11 zgadzają się z wzorcem z treści zadania.
+
+\begin{table}[H]
+\centering
+\caption{Rekomendacje dla wybranych użytkowników}
+\label{tab:res1}
+\begin{tabular}{|c|l|}
+\hline
+\textbf{ID użytkownika} & \multicolumn{1}{c|}{\textbf{Rekomendacje}}      \\ \hline
+924                     & 439, 2409, 6995, 11860, 15416, 43748, 45881     \\ \hline
+8941                    & 8943, 8944, 8940                                \\ \hline
+8942                    & 8939, 8940, 8943, 8944                          \\ \hline
+9019                    & 9022, 317, 9023                                 \\ \hline
+9020                    & 9021, 9016, 9017, 9022, 317, 9023               \\ \hline
+9021                    & 9020, 9016, 9017, 9022, 317, 9023               \\ \hline
+9022                    & 9019, 9020, 9021, 317, 9016, 9017, 9023         \\ \hline
+9990                    & 13134, 13478, 13877, 34299, 34485, 34642, 37941 \\ \hline
+9992                    & 9987, 9989, 35667, 9991                         \\ \hline
+9993                    & 9991, 13134, 13478, 13877, 34299, 34485, 34642, 37941 \\ \hline
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Wnioski
+\section{Wnioski}
+
+\begin{itemize}
+    \item \textit{Apache Spark} jest szczególnie przydatny do równoległego przetwarzania rozproszonych danych za pomocą algorytmów iteracyjnych.\\
+    \item Konteneryzacja \textit{Apache Spark} wraz z \textit{Jupyter Notebook} pozwoliła na szybką konfigurację środowiska oraz jego proste odtworzenie na pozostałych komputerach członków zespołu.
+
+\end{itemize}
+
+% \newpage
+
+\nocite{*}
+\begin{thebibliography}{0}
+    
+    \bibitem{docker}
+    \textsl{Jupyter Notebook Python, Spark Stack}
+    \url{https://hub.docker.com/r/jupyter/pyspark-notebook}
+
+    \bibitem{docker-compose}
+    \textsl{Plik Docker Compose do zadania 2}
+    \url{https://github.com/jurczewski/PiADZD/blob/master/zad2/docker-compose.yml}
+
+    
+\end{thebibliography}
+\end{document}
