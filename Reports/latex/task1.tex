@@ -18,9 +18,8 @@
 
 \renewcommand{\refname}{Bibliografia}
 
-% csharp cmd
-\newcommand{\Csharp}{%
-  {\settoheight{\dimen0}{C}C\kern-.05em \resizebox{!}{\dimen0}{\raisebox{\depth}{\# }}}}
+% bullet itemize
+\renewcommand{\labelitemi}{\textbullet}
 
 \studycycle{Informatyka stosowana, studia dzienne, II st.}
 \coursesemester{2}
@@ -32,7 +31,7 @@
 \coursegroup{środa, 11:45}
 
 \author{%
-  \\
+\\
   \studentinfo[234128@edu.p.lodz.pl]{Piotr Wardęcki}{234128}\\
   \studentinfo[234053@edu.p.lodz.pl]{Paweł Galewicz}{234053}\\
   \studentinfo[234067@edu.p.lodz.pl]{Bartosz Jurczewski}{234067}%
@@ -81,7 +80,7 @@ Sekcja ta prezentuje wykresy z wynikami zapytań. Dla każdej technologii wyniki
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images1/pandas_complaint.png}
+    \includegraphics[width=1\textwidth]{images/images1/pandas_complaint.png}
     \caption{Najczęściej zgłaszane skargi}
     \label{q1}
 \end{figure}
@@ -90,7 +89,7 @@ Sekcja ta prezentuje wykresy z wynikami zapytań. Dla każdej technologii wyniki
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images1/pandas_borough.png}
+    \includegraphics[width=1\textwidth]{images/images1/pandas_borough.png}
     \caption{Najczęściej zgłaszane skargi w każdej dzielnicy}
     \label{q2}
 \end{figure}
@@ -99,7 +98,7 @@ Sekcja ta prezentuje wykresy z wynikami zapytań. Dla każdej technologii wyniki
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images1/pandas_agency.png}
+    \includegraphics[width=1\textwidth]{images/images1/pandas_agency.png}
     \caption{Urzędy, do których najczęściej zgłaszano skargi}
     \label{q3}
 \end{figure}
@@ -113,7 +112,7 @@ Po przeprowadzonych badaniach czasów wykonywania operacji otrzymaliśmy następ
 \begin{tabular}{|l|l|l|l|}
 \hline
 \rowcolor[HTML]{EFEFEF} 
-\textbf{Czynność}                     & \textbf{Pandas} & \textbf{SQLite3} & \textbf{MSSQL} \\ \hline
+\textbf{Czynność}                     & \textbf{Python} & \textbf{SQLite3} & \textbf{MSSQL} \\ \hline
 \textbf{Przygotowanie danych}         & 1m 15.78s       & 3m 30s (1)      & 7m 16.15s (2)  \\ \hline
 \textbf{Najczęściej zgłaszane skargi} & 1.89s           & 17.7s           & 0.529s          \\ \hline
 \textbf{\begin{tabular}[c]{@{}l@{}}Najczęściej zgłaszane skargi \\ w każdej dzielnicy\end{tabular}} & 4.14s & 60.66s & 2.23s \\ \hline
