@@ -1,0 +1,113 @@
+\documentclass{classrep}
+\usepackage[utf8]{inputenc}
+\frenchspacing
+
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{multirow}
+\usepackage[table,xcdraw]{xcolor}
+
+\usepackage{amsmath, amssymb, mathtools}
+
+\usepackage{fancyhdr, lastpage}
+\pagestyle{fancyplain}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage\ / \pageref*{LastPage}}
+
+\renewcommand{\refname}{Bibliografia}
+
+% bullet itemize
+\renewcommand{\labelitemi}{\textbullet}
+
+\studycycle{Informatyka stosowana, studia dzienne, II st.}
+\coursesemester{II}
+
+\coursename{Przetwarzanie i analiza dużych zbiorów danych}
+\courseyear{2020/21}
+
+\courseteacher{mgr inż. Rafał Woźniak}
+\coursegroup{środa, 11:45}
+
+\author{%
+\\
+  \studentinfo[234128@edu.p.lodz.pl]{Piotr Wardęcki}{234128}\\
+  \studentinfo[234053@edu.p.lodz.pl]{Paweł Galewicz}{234053}\\
+  \studentinfo[234067@edu.p.lodz.pl]{Bartosz Jurczewski}{234067}%
+}
+
+\title{Zadanie 4}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancyplain}
+\clearpage
+
+\section{Cel zadania}
+Celem zadania było napisanie programu, który implementuje reguły asocjacyjne za pomocą algorytmu A-priori. Program na podstawie ostatnio przeglądanych przez użytkowników przedmiotów identyfikuje te, które regularnie występowały wspólnie w ramach pojedynczej sesji.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  OPIS IMPLEMENTACJI
+\section{Opis implementacji}
+Do wykonywania zadania niezbędna była instancji \textit{Apache Spark}. Aby ograniczyć liczbę zainstalowanych środowisk skorzystaliśmy z odpowiedniego obrazu dla Dockera \cite{docker}, który zawierał także \textit{Jupyter Notebook}, \textit{Python} oraz \textit{Miniconda}. Dodatkowo aby ułatwić tworzenie środowiska do kolejnych zadań i między naszymi komputerami skorzystaliśmy z narzędzia \textit{Docker Compose} (nasz plik \cite{docker-compose}). Do stworzenia programu bardzo pomocna była funkcja parallelize() która odpowiedzialna była za stworzenie rozproszonego zbioru danych na podstawie listy kolekcji. Pozwalało to na wykorzystanie paradygmatu map-reduce do rozwiązywania większej części zagadnień algorytmu.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  WYNIKI
+\section{Wyniki}
+\begin{table}[H]
+\centering
+\caption{5 reguł asocjacyjnych o największej ufności dla par}
+\begin{tabular}{|c|l|c|}
+\hline
+\rowcolor[HTML]{FFCE93} 
+{\color[HTML]{000000} \textbf{Nr}} & \textbf{Element}        & \textbf{Ufność}    \\ \hline
+1                                  & DAI93865 { [}FRO40251{]} & 1.0                \\ \hline
+2                                  & GRO85051 {[}FRO40251{]} & 0.999176276771005  \\ \hline
+3                                  & GRO38636 {[}FRO40251{]} & 0.9906542056074766 \\ \hline
+4                                  & ELE12951 { [}FRO40251{]} & 0.9905660377358491 \\ \hline
+5                                  & DAI88079 { [}FRO40251{]} & 0.9867256637168141 \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{5 reguł asocjacyjnych o największej ufności dla trójek}
+\begin{tabular}{|c|l|c|}
+\hline
+\rowcolor[HTML]{FFCE93} 
+{\color[HTML]{000000} \textbf{Nr}} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFCE93}\textbf{Element}} & \textbf{Ufność} \\ \hline
+1                                  & DAI23334 ELE92920 { [}DAI62779{]}                              & 1.0             \\ \hline
+2                                  & DAI31081 GRO85051 {[}FRO40251{]}                              & 1.0             \\ \hline
+3                                  & DAI55911 GRO85051 {[}FRO40251{]}                              & 1.0             \\ \hline
+4                                  & DAI62779 DAI88079 { [}FRO40251{]}                              & 1.0             \\ \hline
+5                                  & DAI75645 GRO85051 {[}FRO40251{]}                              & 1.0             \\ \hline
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Wnioski
+\section{Wnioski}
+
+\begin{itemize}
+    \item Stworzone przez nas reguły asocjacyjne mają najlepsza dokładność dla trojek.
+    \item Najczęściej występującym następnikiem wygenerowanych reguł był [FRO40251].
+
+\end{itemize}
+
+\nocite{*}
+\begin{thebibliography}{0}
+    
+    \bibitem{docker}
+    \textsl{Jupyter Notebook Python, Spark Stack}
+    \url{https://hub.docker.com/r/jupyter/pyspark-notebook}
+
+    \bibitem{docker-compose}
+    \textsl{Plik Docker Compose do zadania 2}
+    \url{https://github.com/jurczewski/PiADZD/blob/master/zad2/docker-compose.yml}
+
+    
+\end{thebibliography}
+\end{document}
