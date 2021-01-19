@@ -5,3 +5,6 @@
 <img src="https://static.dwcdn.net/css/flag-icons/flags/4x3/gb.svg" height="10" width="20"> **Big Data Processing And Analysis** classes at Lodz University of Technology (TUL).
 
 ---
+
+# Final presentation (PL)
+[Link](https://github.com/jurczewski/PiADZD/blob/master/project/BigData%20-%20Final%20presentation%20(PL).pd)
