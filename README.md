@@ -7,4 +7,4 @@
 ---
 
 # Final presentation (PL)
-[Link](https://github.com/jurczewski/PiADZD/blob/master/project/BigData%20-%20Final%20presentation%20(PL).pd)
+[Link](https://github.com/jurczewski/PiADZD/blob/master/project/BigData%20-%20Final%20presentation%20(PL).pdf)
